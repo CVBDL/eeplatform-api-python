@@ -41,6 +41,7 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
     <Content Include="eeplatform_api.config.json" />
     <Content Include="LICENSE.txt" />
