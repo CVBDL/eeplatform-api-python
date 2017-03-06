@@ -55,6 +55,7 @@
     <Content Include="eeplatform_api\eeplatform_api.config.json" />
     <Content Include="LICENSE.txt" />
     <Content Include="README.md" />
+    <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="eeplatform_api\" />
