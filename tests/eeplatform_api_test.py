@@ -2,12 +2,10 @@
 
 """Tests for the eeplatform_api module."""
 
-from eeplatform_api import EagleEyePlatformClient
-from eeplatform_api import MissingFieldError
+from eeplatform_api.eeplatform_api import EagleEyePlatformClient
+from eeplatform_api.eeplatform_api import MissingFieldError
 from unittest import mock
 import unittest
-
-__author__ = "Patrick Zhong"
 
 
 chart_id = '58b12147a1e9b417886d3c01'

@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{049d10e9-88dd-4629-87d2-309eb6fe8267}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>eeplatform_api.py</StartupFile>
+    <StartupFile>eeplatform_api\eeplatform_api.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -21,8 +21,17 @@
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="eeplatform_api.py" />
-    <Compile Include="eeplatform_api_test.py">
+    <Compile Include="eeplatform_api\eeplatform_api.py" />
+    <Compile Include="tests\eeplatform_api_test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="eeplatform_api\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="setup.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tests\__init__.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -43,9 +52,13 @@
   <ItemGroup>
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
-    <Content Include="eeplatform_api.config.json" />
+    <Content Include="eeplatform_api\eeplatform_api.config.json" />
     <Content Include="LICENSE.txt" />
     <Content Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="eeplatform_api\" />
+    <Folder Include="tests\" />
   </ItemGroup>
   <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />

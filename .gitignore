@@ -1,3 +1,6 @@
 __pycache__/
 .vs/
 eeplatform-api-python.pyproj.user
+build/
+dist/
+eagleeye_platform_api.egg-info/
