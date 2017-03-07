@@ -21,7 +21,13 @@
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="eeplatform_api\chart.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="eeplatform_api\eeplatform_api.py" />
+    <Compile Include="tests\chart_test.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tests\eeplatform_api_test.py">
       <SubType>Code</SubType>
     </Compile>
@@ -52,7 +58,6 @@
   <ItemGroup>
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
-    <Content Include="eeplatform_api\eeplatform_api.config.json" />
     <Content Include="LICENSE.txt" />
     <Content Include="README.md" />
     <Content Include="requirements.txt" />

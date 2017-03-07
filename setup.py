@@ -11,8 +11,5 @@ setup(
     author='"Patrick Zhong',
     license='MIT',
     packages=find_packages(exclude=['tests']),
-    install_requires=['requests>=2.13.0'],
-    package_data={
-        'eeplatform_api': ['eeplatform_api.config.json'],
-    }
+    install_requires=['requests>=2.13.0']
 )
