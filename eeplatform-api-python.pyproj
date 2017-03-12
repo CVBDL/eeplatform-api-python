@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{049d10e9-88dd-4629-87d2-309eb6fe8267}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>eeplatform_api\eeplatform_api.py</StartupFile>
+    <StartupFile>eeplatform_api\client.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -24,11 +24,11 @@
     <Compile Include="eeplatform_api\chart.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="eeplatform_api\eeplatform_api.py" />
+    <Compile Include="eeplatform_api\client.py" />
     <Compile Include="tests\chart_test.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tests\eeplatform_api_test.py">
+    <Compile Include="tests\client_test.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="eeplatform_api\__init__.py">

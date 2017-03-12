@@ -4,7 +4,7 @@
 
 from eeplatform_api.chart import Chart
 from eeplatform_api.chart import MissingFieldError
-from eeplatform_api.eeplatform_api import EagleEyePlatformClient
+from eeplatform_api.client import EagleEyePlatformClient
 from unittest import mock
 import unittest
 
@@ -16,6 +16,8 @@ headers = {'content-type': 'application/json'}
 
 def mocked_requests_post(url, data=None, json=None, **kwargs):
     class MockResponse:
+        text = 'response text'
+
         def __init__(self, json_data, status_code):
             self.json_data = json_data
             self.status_code = status_code

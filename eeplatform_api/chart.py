@@ -1,11 +1,9 @@
-#!/usr/bin/env python
-
+# -*- coding: utf-8 -*-
 """A Python client of EagleEye platform APIs.
 Resource: chart
 See https://github.com/CVBDL/EagleEye-Docs/blob/master/rest-api/rest-api.md#charts
 """
 
-import json
 import logging
 import requests
 
@@ -22,17 +20,54 @@ class Chart:
             raise Exception('Missing the required "root_endpoint" parameter')
         else:
             self.root_endpoint = root_endpoint
-    
+
+    def _respond(self, req):
+        req.encoding = 'utf-8'
+        if len(req.text) > 0:
+            return (req.status_code, req.json())
+        else:
+            return (req.status_code, None)
+
+    def list(self):
+        """List charts."""
+        req = requests.get('{0}/charts'.format(self.root_endpoint))
+        return self._respond(req)
+
+    def get(self, id=None):
+        """Get one chart."""
+        if id is None:
+            raise MissingFieldError('Missing the required "id" field.')
+
+        req = requests.get('{0}/charts/{1}'.format(self.root_endpoint, id),
+                           headers=self.headers)
+        return self._respond(req)
+
+    def create(self, data=None):
+        """Create a chart."""
+        if data is None:
+            raise MissingFieldError('Missing chart data.')
+
+        req = requests.post('{0}/charts'.format(self.root_endpoint),
+                            headers=self.headers,
+                            data=data)
+        return self._respond(req)
+
     def update(self, id=None, data=None):
+        """Edit a chart."""
         if id is None:
             raise MissingFieldError('Missing the required "id" field.')
         if data is None:
-            raise MissingFieldError('Missing the required "datatable" field.')
+            raise MissingFieldError('Missing update chart data.')
 
         req = requests.post('{0}/charts/{1}'.format(self.root_endpoint, id),
                             headers=self.headers,
                             data=data)
-        return req.json()
+        return self._respond(req)
+
+    def delete(self, id=None):
+        """Delete a chart."""
+        req = requests.delete('{0}/charts/{1}'.format(self.root_endpoint, id))
+        return self._respond(req)
 
 
 class MissingFieldError(Exception):
