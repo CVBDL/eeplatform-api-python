@@ -4,11 +4,7 @@ Resource: chart
 See https://github.com/CVBDL/EagleEye-Docs/blob/master/rest-api/rest-api.md#charts
 """
 
-import logging
 import requests
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger('chart')
 
 
 class Chart:
@@ -66,6 +62,8 @@ class Chart:
 
     def delete(self, id=None):
         """Delete a chart."""
+        if id is None:
+            raise MissingFieldError('Missing the required "id" field.')
         req = requests.delete('{0}/charts/{1}'.format(self.root_endpoint, id))
         return self._respond(req)
 

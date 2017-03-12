@@ -8,7 +8,7 @@ setup(
     version='0.1',
     description='EagleEye Platform Python API',
     url='https://github.com/CVBDL/eeplatform-api-python',
-    author='"Patrick Zhong',
+    author='Patrick Zhong',
     license='MIT',
     packages=find_packages(exclude=['tests']),
     install_requires=['requests>=2.13.0']
