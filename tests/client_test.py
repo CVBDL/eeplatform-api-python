@@ -2,11 +2,10 @@
 
 """Tests for the eeplatform_api module."""
 
-from eeplatform_api.chart import Chart
-from eeplatform_api.chart import MissingFieldError
-from eeplatform_api.client import EagleEyePlatformClient
-from unittest import mock
 import unittest
+
+from eeplatform_api.chart import Chart
+from eeplatform_api.client import EagleEyePlatformClient
 
 
 root_endpoint = 'http://localhost:3000/api/v1'

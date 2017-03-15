@@ -25,6 +25,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="eeplatform_api\client.py" />
+    <Compile Include="eeplatform_api\exceptions.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tests\chart_test.py">
       <SubType>Code</SubType>
     </Compile>

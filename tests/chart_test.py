@@ -2,11 +2,12 @@
 
 """Tests for the chart module."""
 
-from eeplatform_api.chart import Chart
-from eeplatform_api.chart import MissingFieldError
-from eeplatform_api.client import EagleEyePlatformClient
-from unittest import mock
 import unittest
+from unittest import mock
+
+from eeplatform_api.chart import Chart
+from eeplatform_api.client import EagleEyePlatformClient
+from eeplatform_api.exceptions import MissingFieldError
 
 
 root_endpoint = 'http://localhost:3000/api/v1'
@@ -44,8 +45,7 @@ class ChartTest(unittest.TestCase):
         client.chart.update(chart_id, {})
         mocked_requests_post.assert_called_with(
             root_endpoint + '/charts/' + chart_id,
-            headers=headers,
-            data={})
+            json={})
 
 
 if __name__ == '__main__':
