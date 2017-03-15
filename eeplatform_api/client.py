@@ -5,6 +5,7 @@ See https://github.com/CVBDL/EagleEye-Docs/blob/master/rest-api/rest-api.md
 """
 
 from eeplatform_api.chart import Chart
+from eeplatform_api.task import Task
 
 
 class EagleEyePlatformClient:
@@ -17,3 +18,4 @@ class EagleEyePlatformClient:
             self.root_endpoint = root_endpoint
 
         self.chart = Chart(root_endpoint)
+        self.task = Task(root_endpoint)

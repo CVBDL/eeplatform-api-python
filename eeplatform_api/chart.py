@@ -3,12 +3,14 @@
 Resource: chart
 See https://github.com/CVBDL/EagleEye-Docs/blob/master/rest-api/rest-api.md#charts
 """
+
 import requests
 
 from eeplatform_api.exceptions import MissingFieldError
+from eeplatform_api.helper import RequestHelper
 
 
-class Chart:
+class Chart(RequestHelper):
 
     def __init__(self, root_endpoint=None):
         if root_endpoint is None:
@@ -26,7 +28,7 @@ class Chart:
     def list(self):
         """List charts."""
         req = requests.get('{0}/charts'.format(self.root_endpoint))
-        return self._respond(req)
+        return super().respond(req)
 
     def get(self, id=None):
         """Get one chart."""
@@ -34,7 +36,7 @@ class Chart:
             raise MissingFieldError('Missing the required "id" field.')
 
         req = requests.get('{0}/charts/{1}'.format(self.root_endpoint, id))
-        return self._respond(req)
+        return super().respond(req)
 
     def create(self, data=None):
         """Create a chart."""
@@ -42,7 +44,7 @@ class Chart:
             raise MissingFieldError('Missing chart data.')
 
         req = requests.post('{0}/charts'.format(self.root_endpoint), json=data)
-        return self._respond(req)
+        return super().respond(req)
 
     def update(self, id=None, data=None):
         """Edit a chart."""
@@ -53,11 +55,11 @@ class Chart:
 
         req = requests.post('{0}/charts/{1}'.format(self.root_endpoint, id),
                             json=data)
-        return self._respond(req)
+        return super().respond(req)
 
     def delete(self, id=None):
         """Delete a chart."""
         if id is None:
             raise MissingFieldError('Missing the required "id" field.')
         req = requests.delete('{0}/charts/{1}'.format(self.root_endpoint, id))
-        return self._respond(req)
+        return super().respond(req)
