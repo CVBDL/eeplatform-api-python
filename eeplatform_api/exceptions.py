@@ -1,6 +1,8 @@
 """Global exception classes."""
 
+__all__ = ('InvalidArgumentError')
 
-class MissingFieldError(Exception):
-    """This means a required field on a resource has not been set."""
+
+class InvalidArgumentError(Exception):
+    """This means a required argument has a wrong type or value."""
     pass

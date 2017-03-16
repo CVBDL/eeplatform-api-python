@@ -28,10 +28,13 @@
     <Compile Include="eeplatform_api\exceptions.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="eeplatform_api\helper.py">
+    <Compile Include="eeplatform_api\helpers.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="eeplatform_api\task.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="eeplatform_api\validator.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tests\chart_test.py">

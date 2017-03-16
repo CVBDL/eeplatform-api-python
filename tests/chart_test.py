@@ -7,7 +7,7 @@ from unittest import mock
 
 from eeplatform_api.chart import Chart
 from eeplatform_api.client import EagleEyePlatformClient
-from eeplatform_api.exceptions import MissingFieldError
+from eeplatform_api.exceptions import InvalidArgumentError
 
 
 root_endpoint = 'http://localhost:3000/api/v1'
@@ -35,11 +35,15 @@ class ChartTest(unittest.TestCase):
     def test_update(self, mocked_requests_post):
         client = EagleEyePlatformClient(root_endpoint)
 
-        # It should raise 'MissingFieldError' exception if no id provided
-        self.assertRaises(MissingFieldError, client.chart.update)
+        def pass_invalid_id():
+            client.chart.update('', {})
+        
+        self.assertRaises(InvalidArgumentError, pass_invalid_id)
 
-        # It should raise 'MissingFieldError' exception if no data provided
-        self.assertRaises(MissingFieldError, client.chart.update, chart_id)
+        def pass_invalid_data():
+            client.chart.update(chart_id, '')
+
+        self.assertRaises(InvalidArgumentError, pass_invalid_data)
 
         # It should post update data to server
         client.chart.update(chart_id, {})

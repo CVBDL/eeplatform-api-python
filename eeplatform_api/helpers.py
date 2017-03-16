@@ -1,5 +1,7 @@
 """EagleEye Platform API helper calsses."""
 
+__all__ = ('RequestHelper')
+
 
 class RequestHelper:
     """HTTP request helper class"""
