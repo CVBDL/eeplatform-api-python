@@ -10,7 +10,7 @@ from eeplatform_api.validator import Validator
 
 
 class Task(RequestHelper):
-    """The task resource class for internal use."""
+    """EagleEye Platform task API."""
 
     arg_error_msg = 'Invalid required positional argument: "{0}"'
 
@@ -19,7 +19,6 @@ class Task(RequestHelper):
 
     def updateState(self, id, state):
         """Edit task state."""
-
         if not Validator.is_valid_id(id):
             raise InvalidArgumentError(self.arg_error_msg.format('id'))
         if not Validator.is_valid_task_state(state):
