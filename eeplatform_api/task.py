@@ -18,7 +18,7 @@ class Task(RequestHelper):
         self.root_endpoint = root_endpoint
 
     def updateState(self, id, state):
-        """Edit a task."""
+        """Edit task state."""
 
         if not Validator.is_valid_id(id):
             raise InvalidArgumentError(self.arg_error_msg.format('id'))

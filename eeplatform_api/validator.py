@@ -1,10 +1,10 @@
-"""Provide some static validator methods."""
+"""Validator module."""
 
 __all__ = ('Validator')
 
 
 class Validator:
-    """Validator class."""
+    """Provide some static validators"""
 
     @staticmethod
     def is_valid_endpoint(endpoint):

@@ -10,12 +10,13 @@ from eeplatform_api.validator import Validator
 
 
 class EagleEyePlatformClient:
-    """EagleEye Platform API Client"""
+    """EagleEye Platform API client"""
+
+    arg_error_msg = 'Invalid required positional argument: "{0}"'
 
     def __init__(self, root_endpoint):
         if not Validator.is_valid_endpoint(root_endpoint):
-            raise InvalidArgumentError(
-                'Invalid required positional argument: "root_endpoint"')
+            raise InvalidArgumentError(self.arg_error_msg.format('root_endpoint'))
         else:
             self.root_endpoint = root_endpoint
 

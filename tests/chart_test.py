@@ -12,7 +12,6 @@ from eeplatform_api.exceptions import InvalidArgumentError
 
 root_endpoint = 'http://localhost:3000/api/v1'
 chart_id = '58b12147a1e9b417886d3c01'
-headers = {'content-type': 'application/json'}
 
 
 def mocked_requests_post(url, data=None, json=None, **kwargs):
