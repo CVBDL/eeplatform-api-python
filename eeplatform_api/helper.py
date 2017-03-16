@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+"""EagleEye Platform API helper calsses."""
 
 
 class RequestHelper:

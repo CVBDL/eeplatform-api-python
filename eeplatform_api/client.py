@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """A Python client of EagleEye platform APIs.
 
 See https://github.com/CVBDL/EagleEye-Docs/blob/master/rest-api/rest-api.md
