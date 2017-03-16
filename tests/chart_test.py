@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Tests for the chart module."""
+"""Tests for eeplatform_api.chart module."""
 
 import unittest
 from unittest import mock

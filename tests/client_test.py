@@ -1,29 +1,30 @@
 #!/usr/bin/env python
 
-"""Tests for the eeplatform_api module."""
+"""Tests for eeplatform_api.client module."""
 
 import unittest
 
 from eeplatform_api.chart import Chart
 from eeplatform_api.client import EagleEyePlatformClient
 from eeplatform_api.exceptions import InvalidArgumentError
-
-
-root_endpoint = 'http://localhost:3000/api/v1'
+from eeplatform_api.task import Task
 
 
 class EagleEyePlatformClientTest(unittest.TestCase):
 
-    def test_init(self):
-        client = EagleEyePlatformClient(root_endpoint)
-        self.assertEqual(client.root_endpoint, root_endpoint)
-        self.assertTrue(isinstance(client.chart, Chart))
+    root_endpoint = 'http://localhost:3000/api/v1'
 
-    def test_invalid_root_endpoint(self):
-        def create_client():
+    def test_init(self):
+        client = EagleEyePlatformClient(self.root_endpoint)
+
+        self.assertEqual(client.root_endpoint, self.root_endpoint)
+        self.assertTrue(isinstance(client.chart, Chart))
+        self.assertTrue(isinstance(client.task, Task))
+
+        def use_invalid_root_endpoint():
             EagleEyePlatformClient('')
 
-        self.assertRaises(InvalidArgumentError, create_client)
+        self.assertRaises(InvalidArgumentError, use_invalid_root_endpoint)
 
 
 if __name__ == '__main__':
