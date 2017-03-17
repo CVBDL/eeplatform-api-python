@@ -1,4 +1,4 @@
-"""EagleEye Platform task API.
+"""EagleEye Platform task resource.
 
 See https://github.com/CVBDL/EagleEye-Docs/blob/master/rest-api/rest-api.md#tasks
 """
@@ -11,7 +11,14 @@ from eeplatform_api.validator import Validator
 
 
 class Task(RequestHelper):
-    """EagleEye Platform task API."""
+    """The task APIs.
+
+    Args:
+        root_endpoint (str): The EagleEye Platform API root endpoint.
+
+    Attributes:
+        root_endpoint (str): The EagleEye Platform API root endpoint.
+    """
 
     _arg_error_msg = 'Invalid required positional argument: "{0}"'
 
@@ -19,7 +26,20 @@ class Task(RequestHelper):
         self.root_endpoint = root_endpoint
 
     def updateState(self, id, state):
-        """Edit task state."""
+        """Edit task state.
+
+        Args:
+            id (str): The "_id" field of a chart.
+            state (str): The task state.  One of 'running', 'success'
+                         or 'failure'
+
+        Returns:
+            A tuple contains status code and JSON chart data.
+
+        Raises:
+            InvalidArgumentError: Either chart id or task state
+                                  is invalid.
+        """
         if not Validator.is_valid_id(id):
             raise InvalidArgumentError(self._arg_error_msg.format('id'))
         if not Validator.is_valid_task_state(state):
