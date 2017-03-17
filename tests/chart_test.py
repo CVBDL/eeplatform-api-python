@@ -9,30 +9,26 @@ from eeplatform_api.chart import Chart
 from eeplatform_api.client import EagleEyePlatformClient
 from eeplatform_api.exceptions import InvalidArgumentError
 
-
-root_endpoint = 'http://localhost:3000/api/v1'
-chart_id = '58b12147a1e9b417886d3c01'
-
-
-def mocked_requests_post(url, data=None, json=None, **kwargs):
-    class MockResponse:
-        text = 'response text'
-
-        def __init__(self, json_data, status_code):
-            self.json_data = json_data
-            self.status_code = status_code
-
-        def json(self):
-            return self.json_data
-
-    return MockResponse({'_id': chart_id, 'datatable': {}}, 200)
+import tests.requests_mock as requests_mock
 
 
 class ChartTest(unittest.TestCase):
 
-    @mock.patch('requests.post', side_effect=mocked_requests_post)
+    root_endpoint = 'http://localhost:3000/api/v1'
+    chart_id = '58b12147a1e9b417886d3c01'
+
+    @mock.patch('requests.get', side_effect=requests_mock.mocked_requests_get)
+    def test_list(self, mocked_requests_get):
+        client = EagleEyePlatformClient(self.root_endpoint)
+        client.chart.list()
+        mocked_requests_get.assert_called_with(
+            '{0}/charts'.format(self.root_endpoint))
+
+
+    @mock.patch('requests.post',
+                side_effect=requests_mock.mocked_requests_post)
     def test_update(self, mocked_requests_post):
-        client = EagleEyePlatformClient(root_endpoint)
+        client = EagleEyePlatformClient(self.root_endpoint)
 
         def pass_invalid_id():
             client.chart.update('', {})
@@ -40,14 +36,14 @@ class ChartTest(unittest.TestCase):
         self.assertRaises(InvalidArgumentError, pass_invalid_id)
 
         def pass_invalid_data():
-            client.chart.update(chart_id, '')
+            client.chart.update(self.chart_id, '')
 
         self.assertRaises(InvalidArgumentError, pass_invalid_data)
 
         # It should post update data to server
-        client.chart.update(chart_id, {})
+        client.chart.update(self.chart_id, {})
         mocked_requests_post.assert_called_with(
-            root_endpoint + '/charts/' + chart_id,
+            '{0}/charts/{1}'.format(self.root_endpoint, self.chart_id),
             json={})
 
 

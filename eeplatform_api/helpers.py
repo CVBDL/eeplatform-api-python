@@ -16,7 +16,7 @@ class RequestHelper:
             A tuple contains status code and response JSON data.
         """
         req.encoding = 'utf-8'
-        if len(req.text) > 0:
+        if req.text is not None and len(req.text) > 0:
             return req.status_code, req.json()
         else:
             return req.status_code, None
