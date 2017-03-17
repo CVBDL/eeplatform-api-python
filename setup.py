@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 setup(
     name='eagleeye-platform-api',
     version='0.1',
-    description='EagleEye Platform Python API',
+    description='EagleEye Platform API Client',
     url='https://github.com/CVBDL/eeplatform-api-python',
     author='Patrick Zhong',
     license='MIT',
