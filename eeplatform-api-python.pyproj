@@ -52,7 +52,13 @@
     <Compile Include="tests\exceptions_test.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="tests\helpers_test.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tests\requests_mock.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tests\task_test.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tests\validator_test.py">

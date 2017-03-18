@@ -3,9 +3,8 @@
 import json as lib_json
 
 
-chart_id = '58b12147a1e9b417886d3c01'
 chart = {
-    '_id': chart_id,
+    '_id': '58b12147a1e9b417886d3c01',
     'description': 'sample desc'
 }
 
@@ -26,9 +25,21 @@ class MockResponse:
         return self.json_data
 
 
-def mocked_requests_get(url):
+def mocked_requests_get_many(url):
     return MockResponse(200, [chart])
+
+
+def mocked_requests_get_one(url):
+    return MockResponse(200, chart)
 
 
 def mocked_requests_post(url, json=None, **kwargs):
     return MockResponse(200, json)
+
+
+def mocked_requests_put(url, json=None, **kwargs):
+    return MockResponse(200, json)
+
+
+def mocked_requests_delete(url):
+    return MockResponse(204, None)

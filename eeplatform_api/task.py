@@ -25,7 +25,7 @@ class Task(RequestHelper):
     def __init__(self, root_endpoint):
         self.root_endpoint = root_endpoint
 
-    def updateState(self, id, state):
+    def update_state(self, id, state):
         """Edit task state.
 
         Args:
