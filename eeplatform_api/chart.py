@@ -36,7 +36,7 @@ class Chart(RequestHelper):
 
     def get(self, id):
         """Get one chart.
-        
+
         Args:
             id (str): The "_id" field of a chart.
 
@@ -54,7 +54,7 @@ class Chart(RequestHelper):
 
     def create(self, data):
         """Create a chart.
-        
+
         Args:
             data (dict): The new chart's data.
 
@@ -72,7 +72,7 @@ class Chart(RequestHelper):
 
     def update(self, id, data):
         """Edit a chart.
-        
+
         Args:
             id (str): The "_id" field of a chart.
             data (dict): The update data of a chart.
@@ -94,7 +94,7 @@ class Chart(RequestHelper):
 
     def delete(self, id):
         """Delete a chart.
-        
+
         Args:
             id (str): The "_id" field of a chart.
 

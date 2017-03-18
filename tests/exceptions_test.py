@@ -11,7 +11,7 @@ class InvalidArgumentErrorTest(unittest.TestCase):
 
     def test_main(self):
         self.assertEqual(issubclass(InvalidArgumentError, Exception), True)
-        
+
         def make_exception():
             raise InvalidArgumentError()
 

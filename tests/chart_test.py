@@ -5,7 +5,6 @@
 import unittest
 from unittest import mock
 
-from eeplatform_api.chart import Chart
 from eeplatform_api.client import EagleEyePlatformClient
 from eeplatform_api.exceptions import InvalidArgumentError
 
@@ -24,7 +23,6 @@ class ChartTest(unittest.TestCase):
         mocked_requests_get.assert_called_with(
             '{0}/charts'.format(self.root_endpoint))
 
-
     @mock.patch('requests.post',
                 side_effect=requests_mock.mocked_requests_post)
     def test_update(self, mocked_requests_post):
@@ -32,7 +30,7 @@ class ChartTest(unittest.TestCase):
 
         def pass_invalid_id():
             client.chart.update('', {})
-        
+
         self.assertRaises(InvalidArgumentError, pass_invalid_id)
 
         def pass_invalid_data():

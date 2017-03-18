@@ -28,7 +28,7 @@ class Validator:
         Returns:
             bool: The return value. True for valid, False for invalid.
         """
-        return isinstance(id, str) and len(id)==24
+        return isinstance(id, str) and len(id) == 24
 
     @staticmethod
     def is_valid_payload(payload):
